@@ -1,9 +1,7 @@
 
-# User Service
+# Exam Service
 
-A micro service to maintain and manipulate the user data. Contains Roles of an ADMIN, STUDENT and TEACHER. 
-
-Communicates with a database to maintain Data. Communicates with other microservices.
+A micro service to create online exams. The exams are mainted by teacher and admin. Students are only allowed to attempt exams
 
 
 
@@ -18,7 +16,7 @@ Communicates with a database to maintain Data. Communicates with other microserv
 Clone the project
 
 ```bash
-  git clone https://github.com/AdilMir1433/User-Service
+  git clone https://github.com/AdilMir1433/Exam-Service
 ```
 
 Go to the project directory
@@ -42,8 +40,8 @@ Start the server
 
 ## Features
 
-- Multiple roles (ADMIN, STUDENT , TEACHER)
-- Only admin creates Accounts
-- Admin Approves Quizzes
-- Inter Communication
+- Multiple Choice questions
+- Teacher creates questions
+- Admin approves exams
+- Student attempts exams
 
