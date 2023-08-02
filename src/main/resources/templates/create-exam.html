@@ -1,0 +1,85 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Exam</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" th:href="@{/css/create-exam.css}">
+
+</head>
+<body>
+<script th:src="@{/js/create-exam.js}"></script>
+<!--  <div class="info_box">-->
+<!--    <div class="info_title">-->
+<!--      <span>Rules of this Quiz</span>-->
+<!--      <div class="info_list">-->
+<!--        <div class="info">-->
+<!--          1. You will have only <span>15 seconds</span> per each question.-->
+<!--          2. Once you select your answer, it can't be undone.-->
+<!--          3. You can't select any option once time goes off.-->
+<!--          4. You'll get points on the basis of your correct answers.-->
+<!--        </div>-->
+<!--        <div class="buttons">-->
+<!--          <button class="quit">Exit Quiz</button>-->
+<!--          <button class="restart">Continue</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<div>
+  <h1>Display Radio Buttons</h1>
+
+  <div id="questionType" >
+    <p>Select  Question Type:</p>
+     <input type="radio" id="mcq" name="type" value="MCQ">
+     <label for="mcq">MCQ</label><br>
+     <input type="radio" id="text" name="type" value="Text">
+     <label for="text">Text</label>
+    <input type="submit" name="" id="" value="Enter" onclick="submitForm()">
+    <br>
+  </div>
+
+  <form id="mcq-form" style="display: none">
+    <div>
+      <label for="question">Question:</label>
+      <input type="text" id="question" required>
+    </div>
+    <div>
+      <label for="option1">Option 1:</label>
+      <input type="text" id="option1" required>
+    </div>
+    <div>
+      <label for="option2">Option 2:</label>
+      <input type="text" id="option2" required>
+    </div>
+    <div>
+      <label for="option3">Option 3:</label>
+      <input type="text" id="option3" required>
+    </div>
+    <div>
+      <label for="option4">Option 4:</label>
+      <input type="text" id="option4" required>
+    </div>
+
+    <p>Select  Correct Option:</p>
+    <input type="radio" id="one" name="option" value="1">
+    <label for="mcq">1</label><br>
+    <input type="radio" id="two" name="option" value="2">
+    <label for="text">2</label>
+    <input type="radio" id="three" name="option" value="3">
+    <label for="mcq">3</label><br>
+    <input type="radio" id="four" name="option" value="4">
+    <label for="text">4</label>
+    <button type="button" onclick="selectedOption()">Continue</button>
+
+    <button type="button" onclick="addQuestion()">Add Question</button>
+    <button type="button" onclick="finishQuiz()">Finish</button>
+  </form>
+
+</div>
+<h2>Generated Quiz:</h2>
+<ul id="quizList"></ul>
+</body>
+</html>
