@@ -1,5 +1,6 @@
 package com.example.examservice.controllers;
 
+import com.common.ExamObject;
 import com.common.QuestionDTO;
 import com.example.examservice.entities.Exam;
 import com.example.examservice.entities.Question;
@@ -37,12 +38,6 @@ public class ExamController {
         log.info("Subject saved successfully");
         return "redirect:/ui/welcome";
     }
-
-    @GetMapping("/checks")
-    public String check() {
-        return "Exam";
-    }
-
     @GetMapping("/get-all-subjects")
     public List<Subject> getAllSubjects() {
         return subjectService.getAllSubjects();
@@ -75,6 +70,10 @@ public class ExamController {
     public Long getExam(@RequestParam String examName) {
         log.info("Subject Received Name : {} ", examName);
         return examService.getExamIdByExamTitle(examName);
+    }
+    @GetMapping("/get-all-exams")
+    public List<ExamObject> getAllExams() {
+        return examService.convertedExams();
     }
 
 }
