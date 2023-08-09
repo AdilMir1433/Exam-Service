@@ -1,12 +1,15 @@
 package com.example.examservice.services;
 
+import com.common.ExamDTO;
 import com.common.ExamObject;
+import com.common.QuestionDTO;
 import com.example.examservice.entities.Exam;
 import com.example.examservice.repositories.ExamRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +40,37 @@ public class ExamService {
             examDTO.setSubjectID(exam.getSubjectID());
             examDTO.setTeacherID(exam.getTeacherID());
             examDTO.setId(exam.getId());
+            examDTOS.add(examDTO);
+        }
+        return examDTOS;
+    }
+    public Exam getExamById(Long id){
+        return examRepository.findById(id).get();
+    }
+    public List<ExamDTO> examLists()
+    {
+        List<Exam> exams = examRepository.findAll();
+        List<ExamDTO> examDTOS = new ArrayList<>();
+        for (Exam exam : exams) {
+            ExamDTO examDTO = new ExamDTO();
+            examDTO.setApproved(exam.isApproved());
+            examDTO.setExamTitle(exam.getExamTitle());
+            examDTO.setSubjectID(exam.getSubjectID());
+            examDTO.setTeacherID(exam.getTeacherID());
+            examDTO.setId(exam.getId());
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String startDateString = dateFormat.format(exam.getStartDate());
+            examDTO.setStartDate(startDateString);
+
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            String startTimeString = timeFormat.format(exam.getStartTime());
+            examDTO.setStartTime(startTimeString);
+
+            SimpleDateFormat endTimeFormat = new SimpleDateFormat("HH:mm");
+            String endTimeString = timeFormat.format(exam.getEndTime());
+            examDTO.setStartTime(endTimeString);
+
             examDTOS.add(examDTO);
         }
         return examDTOS;
