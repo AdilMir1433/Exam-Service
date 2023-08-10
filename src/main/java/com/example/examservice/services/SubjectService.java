@@ -19,7 +19,7 @@ public class SubjectService {
     /** Method to save a subject into database */
     public void saveSubject(Subject subject) {
         try {
-            subjectRepository.save(subject);
+            if(getSubjectByName(subject.getSubjectName()) == null) subjectRepository.save(subject);
         }
         catch (Exception e) {
             throw new InternalException("Error while saving subject");
@@ -48,9 +48,9 @@ public class SubjectService {
     }
 
     /** Method to get a subject by name */
-    public void getSubjectByName(String name) {
+    public Subject getSubjectByName(String name) {
         try {
-            subjectRepository.findBySubjectName(name);
+            return subjectRepository.findBySubjectName(name);
         }
         catch (Exception e) {
             throw new ResourceNotFoundException("No such Subject Found");
