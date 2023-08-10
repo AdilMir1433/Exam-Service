@@ -1,15 +1,12 @@
 package com.example.examservice.entities;
 
-import com.common.QuestionType;
+import com.common.QuestionDTOs.QuestionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
