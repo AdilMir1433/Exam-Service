@@ -124,4 +124,12 @@ public class ExamService {
             throw new InternalException("No exams found");
         }
     }
+
+    public void deleteExamById(Long id) {
+        try {
+            examRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new ResourceNotFoundException("Exam with ID : " + id + ". Not found");
+        }
+    }
 }

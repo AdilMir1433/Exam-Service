@@ -127,4 +127,8 @@ public class ExamController {
         ExamDTO examDTO = this.modelMapper.map(exam, ExamDTO.class);
         return examDTO;
     }
+    @PostMapping("/delete-exam")
+    public void deleteExam(@RequestParam Long examId) {
+        examService.deleteExamById(examId);
+    }
 }
